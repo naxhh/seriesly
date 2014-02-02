@@ -2,6 +2,9 @@ Seriesly API SDK.
 ========
 Not official SDK.
 
+[![Build Status](https://travis-ci.org/naxhh/seriesly.png?branch=travis)](https://travis-ci.org/naxhh/seriesly)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/naxhh/seriesly/badges/quality-score.png?s=9aa8539768073849e9aa9adfc64f6164b3ef4fbb)](https://scrutinizer-ci.com/g/naxhh/seriesly/)
+
 
 ## Why?
 Pending to write.
