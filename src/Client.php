@@ -3,11 +3,9 @@ namespace Naxhh\Seriesly;
 
 class Client
 {
-    private $app_id;
-    private $secret_key;
     private $api_handler;
 
-    public static function create( $app_id, $secret_key, $executor )
+    public static function create( $app_id, $secret_key, Adapter\Base $executor )
     {
         $api_handler = new Request(
             $executor,
