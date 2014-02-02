@@ -34,7 +34,7 @@ This is still under development, a lot of things can change:
 ## Testing
 
 ``` bash
-$ phpunit
+$ ./bin/phpunit
 ```
 
 ## Credits
