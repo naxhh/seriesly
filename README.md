@@ -35,7 +35,8 @@ $client = Client::create( $app_id, $secret_key, $http_executor )
 
 This is still under development, a lot of things can change:
 
-- [ ] Enable locale selecting.
+- [ ] Enable locale selecting for medias.
+- [ ] Document classes.
 
 ## Testing
 
