@@ -13,7 +13,7 @@ Via Composer
 ``` json
 {
     "require": {
-        ""naxhh/seriesly"": "@dev"
+        "naxhh/seriesly": "@dev"
     }
 }
 ```
@@ -44,4 +44,4 @@ $ phpunit
 
 ## License
 
-The MIT License (MIT). Please see License File.
+The MIT License (MIT). Please see [License File](https://github.com/naxhh/seriesly/blob/master/LICENSE).
