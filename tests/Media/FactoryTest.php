@@ -9,9 +9,6 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function should_return_serie()
     {
-        $serie_id   = 1;
-        $media_type = Types::SERIE;
-
         $serie_info = array(
             "idm"       => "260",
             "id_media"  => "2EF4F6T6CZ",
@@ -33,18 +30,11 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
             "error" => 0
         );
 
-
-        $api_handler = $this->getMock( 'Naxhh\Seriesly\RequestHandler' );
-        $api_handler->expects( $this->once() )
-            ->method( 'get' )
-            ->with( Factory::API_URL . 'media/basic_info/?auth_token=auth_key&mediaType=' . $media_type . '&idm=' . $serie_id )
-            ->will( $this->returnValue( $serie_info ) );
-
-        $factory = new Factory( $api_handler, 'auth_key' );
+        $factory = new Factory();
 
         $this->assertInstanceOf(
             '\Naxhh\Seriesly\Media\Serie',
-            $factory->get( $serie_id, $media_type )
+            $factory->create( $serie_info )
         );
     }
 }

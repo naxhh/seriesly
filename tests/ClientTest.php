@@ -7,63 +7,34 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->app_id     = 1;
-        $this->secret_key = 'my_secret_key';
-        $this->auth_key = 'given_auth_key_by_api';
-
-        $this->request_handler = $this->getMock( 'Naxhh\Seriesly\RequestHandler' );
-        $this->client = new Client( $this->app_id, $this->secret_key, $this->request_handler );
-    }
-    /** @test */
-    public function client_should_connect_to_get_auth_key()
-    {
-        $auth_key = 'given_auth_key_by_api';
-
-        $api_response = array(
-            "auth_token"        => $auth_key,
-            "auth_expires_date" => "1349168354",
-            "error"             => 0
-        );
-
-        $this->request_handler->expects( $this->once() )
-            ->method( 'get' )
-            ->with( Client::API_URL . 'auth_token/?id_api=' . $this->app_id . '&secret=' . $this->secret_key )
-            ->will( $this->returnValue( $api_response ) );
-
-        $this->assertEquals(
-            $auth_key,
-            $this->client->getAuthKey()
-        );
-    }
-
-    private function client_retrieve_auth()
-    {
-        $api_response = array(
-            "auth_token"        => $this->auth_key,
-            "auth_expires_date" => "1349168354",
-            "error"             => 0
-        );
-
-        $this->request_handler->expects( $this->at( 0 ) )
-            ->method( 'get' )
-            ->with( Client::API_URL . 'auth_token/?id_api=' . $this->app_id . '&secret=' . $this->secret_key )
-            ->will( $this->returnValue( $api_response ) );
+        $this->request_handler = $this->getMockBuilder( 'Naxhh\Seriesly\Request' )
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->client = new Client( $this->request_handler );
     }
 
     /** @test */
-    public function client_should_not_connect_two_times_to_get_auth_key()
+    public function create_should_return_a_valid_client_object()
     {
-        $this->client_retrieve_auth();
+        $app_id     = 1;
+        $secret_key = 'my_secret_key';
+        $executor   = $this->getMock( 'Naxhh\Seriesly\Adapter\Base' );
 
-        $this->client->getAuthKey();
-        $this->client->getAuthKey();
+        $client = Client::create( $app_id, $secret_key, $executor );
+
+        $this->assertInstanceOf(
+            'Naxhh\Seriesly\Client',
+            $client
+        );
     }
 
     /** @test */
     public function client_should_return_serie_based_on_id()
     {
-        $serie_id = 1;
-        $serie_info = array(
+        $serie_id   = 1;
+        $media_type = 1;
+
+        $api_response = array(
             "idm"       => "260",
             "id_media"  => "2EF4F6T6CZ",
             "mediaType" => "1",
@@ -84,11 +55,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             "error" => 0
         );
 
-        $this->client_retrieve_auth();
-        $this->request_handler->expects( $this->at( 1 ) )
-            ->method( 'get' )
-            ->with( Client::API_URL . 'media/basic_info/?auth_token=' . $this->auth_key . '&mediaType=1&idm=' . $serie_id )
-            ->will( $this->returnValue( $serie_info ) );
+        $this->request_handler->expects( $this->once() )
+            ->method( 'getBasicMedia' )
+            ->with( $serie_id, $media_type )
+            ->will( $this->returnValue( $api_response ) );
 
         $serie = $this->client->getSerie( $serie_id );
 

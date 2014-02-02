@@ -20,16 +20,22 @@ Via Composer
 
 ## Usage
 
-WAITING FOR A FIRST OFFICIAL RELEASE
+``` php
+use Naxhh\Seriesly\Client;
+use Naxhh\Seriesly\Adapter\Base as Executor;
+
+$app_id        = 'your series.ly app id';
+$secret_key    = 'your secret key';
+$http_executor = new Executor();
+
+$client = Client::create( $app_id, $secret_key, $http_executor )
+```
 
 ## TODO
 
 This is still under development, a lot of things can change:
 
-- [ ] Handle API Auth.
-- [ ] Media data (basic/full)
-- [ ] List data
-- [ ] Make lists have Media objects inside.
+- [ ] Enable locale selecting.
 
 ## Testing
 
