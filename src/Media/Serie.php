@@ -3,7 +3,7 @@ namespace Naxhh\Seriesly\Media;
 
 class Serie
 {
-    public function __construct( $info )
+    public function __construct($info)
     {
         $this->info = $info;
     }
