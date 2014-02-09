@@ -25,7 +25,8 @@ Via Composer
 
 ``` php
 use Naxhh\Seriesly\ClientFactory;
-use Naxhh\Seriesly\Adapter\Base as Executor;
+// See the src/Adapter folder to know all the compatible adapters.
+use Naxhh\Seriesly\Adapter\Curl as Executor;
 
 $app_id        = 'your series.ly app id';
 $secret_key    = 'your secret key';
