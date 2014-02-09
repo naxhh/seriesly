@@ -24,14 +24,14 @@ Via Composer
 ## Usage
 
 ``` php
-use Naxhh\Seriesly\Client;
+use Naxhh\Seriesly\ClientFactory;
 use Naxhh\Seriesly\Adapter\Base as Executor;
 
 $app_id        = 'your series.ly app id';
 $secret_key    = 'your secret key';
 $http_executor = new Executor();
 
-$client = Client::create( $app_id, $secret_key, $http_executor )
+$client = ClientFactory::create($app_id, $secret_key, $http_executor)
 ```
 
 ## TODO

@@ -5,18 +5,6 @@ class Client
 {
     private $api_handler;
 
-    public static function create($app_id, $secret_key, Adapter\Base $executor)
-    {
-        $api_handler = new Request(
-            $executor,
-            new UrlBuilder,
-            $app_id,
-            $secret_key
-        );
-
-        return new self( $api_handler );
-    }
-
     public function __construct(Request $api_handler)
     {
         $this->api_handler = $api_handler;
