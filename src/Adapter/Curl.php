@@ -19,6 +19,6 @@ class Curl implements Base
         $result = curl_exec($ch);
         curl_close($ch);
 
-        return json_decode($result);
+        return json_decode($result, true);
     }
 }

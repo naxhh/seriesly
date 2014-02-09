@@ -19,6 +19,6 @@ class FileGetContents implements Base
         );
 
         $result = file_get_contents($url, false, stream_context_create($options));
-        return json_decode($result);
+        return json_decode($result, true);
     }
 }
