@@ -14,21 +14,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function create_should_return_a_valid_client_object()
-    {
-        $app_id     = 1;
-        $secret_key = 'my_secret_key';
-        $executor   = $this->getMock( 'Naxhh\Seriesly\Adapter\Base' );
-
-        $client = Client::create( $app_id, $secret_key, $executor );
-
-        $this->assertInstanceOf(
-            'Naxhh\Seriesly\Client',
-            $client
-        );
-    }
-
-    /** @test */
     public function client_should_return_serie_based_on_id()
     {
         $serie_id   = 1;
