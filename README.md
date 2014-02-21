@@ -50,7 +50,6 @@ This is still under development, a lot of things can change:
 
 ``` bash
 $ ./bin/phpunit --testsuite unit
-// You need to set app-id and secret in ./tests/Integration/Base.php before running this.
 $ ./bin/phpunit --testsuite integration
 ```
 
