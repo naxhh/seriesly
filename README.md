@@ -33,6 +33,10 @@ $secret_key    = 'your secret key';
 $http_executor = new Executor();
 
 $client = ClientFactory::create($app_id, $secret_key, $http_executor)
+
+//Check Client.php for all methods list.
+$serie = $client->getSerie( $id = 96 );
+echo $serie->mediaType; // 1
 ```
 
 ## TODO
@@ -45,7 +49,9 @@ This is still under development, a lot of things can change:
 ## Testing
 
 ``` bash
-$ ./bin/phpunit
+$ ./bin/phpunit --testsuite unit
+// You need to set app-id and secret in ./tests/Integration/Base.php before running this.
+$ ./bin/phpunit --testsuite integration
 ```
 
 ## Credits
