@@ -6,6 +6,7 @@ use Naxhh\Seriesly\ClientFactory;
 
 class Base extends \PHPUnit_Framework_TestCase
 {
+    // Set this value for your integration tests.
     protected static $app_id = '';
     protected static $secret = '';
 
