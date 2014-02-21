@@ -1,12 +1,6 @@
 <?php
 namespace Naxhh\Seriesly\Media;
 
-class Serie
+class Serie extends Base
 {
-    private $info;
-
-    public function __construct($info)
-    {
-        $this->info = $info;
-    }
 }

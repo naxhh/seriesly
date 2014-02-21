@@ -1,8 +1,19 @@
 <?php
-namespace Naxhh\Seriesly\Tests;
+namespace Naxhh\Seriesly\Tests\Integration\Media;
+
+use Naxhh\Seriesly\Tests\Integration\Base;
+use Naxhh\Seriesly\Media\Types;
 
 class SerieTest extends Base
 {
-    public function testAs()
-    {}
+    /** @test */
+    public function retrieve_basic_info()
+    {
+        $client = self::createClient();
+        $id     = 96;
+
+        $serie = $client->getSerie($id);
+
+        $this->assertEquals(Types::SERIE, $serie->mediaType);
+    }
 }
