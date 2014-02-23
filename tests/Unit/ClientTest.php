@@ -2,6 +2,7 @@
 namespace Naxhh\Seriesly\Tests;
 
 use Naxhh\Seriesly\Client;
+use Naxhh\Seriesly\Media\Types;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
@@ -17,12 +18,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function client_should_return_serie_based_on_id()
     {
         $serie_id   = 1;
-        $media_type = 1;
+        $media_type = Types::SERIE;
 
         $api_response = array(
             "name"      => "Fringe",
             "idm"       => "260",
-            "mediaType" => "1",
+            "mediaType" => Types::SERIE,
             "error"     => 0
         );
 
@@ -43,12 +44,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function client_should_return_movie_based_on_id()
     {
         $movie_id   = 20;
-        $media_type = 2;
+        $media_type = Types::MOVIE;
 
         $api_response = array(
             "name"      => "American Playboy (¿Quién es tu padre?)",
             "idm"       => 260,
-            "mediaType" => 2,
+            "mediaType" => Types::MOVIE,
             "error"     => 0
         );
 
@@ -69,12 +70,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function client_should_return_tvshow_based_on_id()
     {
         $tvshow_id  = 20;
-        $media_type = 3;
+        $media_type = Types::TVSHOW;
 
         $api_response = array(
             "name"      => "Some tv show",
             "idm"       => 260,
-            "mediaType" => 3,
+            "mediaType" => Types::TVSHOW,
             "error"     => 0
         );
 
@@ -95,12 +96,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function client_should_return_documentary_based_on_id()
     {
         $documentary_id = 20;
-        $media_type     = 4;
+        $media_type     = Types::DOCUMENTARY;
 
         $api_response = array(
             "name"      => "Some documentary",
             "idm"       => 260,
-            "mediaType" => 4,
+            "mediaType" => Types::DOCUMENTARY,
             "error"     => 0
         );
 

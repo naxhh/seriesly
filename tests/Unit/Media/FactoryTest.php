@@ -12,7 +12,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
         $serie_info = array(
             "idm"       => "260",
             "id_media"  => "2EF4F6T6CZ",
-            "mediaType" => "1",
+            "mediaType" => Types::SERIE,
             "name"      => "Fringe",
             "maingenre" => "Drama",
             "year"      => "2008",
@@ -44,7 +44,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
         $movie_info = array(
             "name"      => "American Playboy (¿Quién es tu padre?)",
             "idm"       => 260,
-            "mediaType" => 2,
+            "mediaType" => Types::MOVIE,
             "id_media"  => "TX7D2WHX6S",
             "imdb"      => "tt0287138",
             "rating"    => 6.4022140221402,
@@ -74,8 +74,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     public function should_return_tvshow()
     {
         $tvshow_info = array(
-            'mediaType' => 3
-            // TODO: populate this when API works again...
+            'mediaType' => Types::TVSHOW
         );
 
         $factory = new Factory();
@@ -90,8 +89,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     public function should_return_documentary()
     {
         $documentary_info = array(
-            'mediaType' => 4
-            // TODO: populate this when API works again...
+            'mediaType' => Types::DOCUMENTARY
         );
 
         $factory = new Factory();

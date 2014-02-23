@@ -18,7 +18,8 @@
     "autoload": {
         "psr-4": {
             "Naxhh\\Seriesly\\" : "src",
-            "Naxhh\\Seriesly\\Tests\\": "tests"
+            "Naxhh\\Seriesly\\Tests\\": "tests/unit",
+            "Naxhh\\Seriesly\\Tests\\Integration\\": "tests/integration"
         }
     }
 }
